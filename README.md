@@ -15,3 +15,5 @@ kwuser | User
 section | Section
 studentandsection | Section_Has_Student  
 subject | Course  
+
+- 각종 아이디 및 비밀번호(ex. DB 비밀번호) 등을 코드내에 입력하여 사용해야 함
