@@ -1,0 +1,56 @@
+CREATE TABLE File
+   (
+   fileName VARCHAR(20),
+   fileRealName VARCHAR(20),
+   sort VARCHAR(20),
+   text VARCHAR(1024)
+   );
+
+CREATE TABLE User
+   (
+   userID VARCHAR(20) PRIMARY KEY, 
+   userPassword VARCHAR(20),
+   userName VARCHAR(20),
+   userEmail VARCHAR(50),
+   userPhone VARCHAR(20),
+   userdeName VARCHAR(50) REFERENCES Department(deName),
+   userIf Int
+   );
+
+CREATE TABLE Department
+   (
+   deName VARCHAR(30) PRIMARY KEY
+   );
+
+CREATE TABLE Section
+   (   
+   secName VARCHAR(20) PRIMARY KEY,
+   secDaysTime VARCHAR(20),
+   secCoCode VARCHAR(10) REFERENCES Course(coCode),
+   secUserName VARCHAR(10) REFERENCES User(userName)
+   );
+
+CREATE TABLE Section_Has_Student
+   (
+   shsSecName VARCHAR(20) REFERENCES Section(secName),
+   shsUserID VARCHAR(10) REFERENCES User(userID)
+   );
+
+CREATE TABLE Course
+   (
+   coCredit VARCHAR(10),
+   coCode VARCHAR(10) PRIMARY KEY,
+   coLevel VARCHAR(10),
+   coDesc VARCHAR(30),
+   coName VARCHAR(20)
+   );
+
+CREATE TABLE Bbs(
+   bbsID Int PRIMARY KEY,
+   bbsTitle VARCHAR(20),
+   bbsWriteuserID VARCHAR(20) REFERENCES User(userID),
+   bbsEmail VARCHAR(50),
+   bbsTime VARCHAR(50),
+   bbsText VARCHAR(2048),
+   bbsAvailable Int
+);
